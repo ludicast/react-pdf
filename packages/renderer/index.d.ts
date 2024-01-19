@@ -21,7 +21,7 @@ export = ReactPDF;
 
 declare namespace ReactPDF {
   interface Styles {
-    [key: string]: Style;
+    [key: string]: Style | ((a: any) => Style);
   }
   interface OnRenderProps {
     blob?: Blob;

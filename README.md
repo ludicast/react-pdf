@@ -22,6 +22,7 @@
 This package is used to _create_ PDFs using React. If you wish to _display_ existing PDFs, you may be looking for [react-pdf](https://github.com/wojtekmaj/react-pdf).
 
 ## How to install
+
 ```sh
 yarn add @react-pdf/renderer
 ```
@@ -38,21 +39,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#E4E4E4'
   },
-  section: {
+  section: (color = 'black') => {
     margin: 10,
     padding: 10,
-    flexGrow: 1
-  }
+    flexGrow: 1,
+    color
+  },
 });
 
 // Create Document Component
 const MyDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
+      <View style={styles.section()}>
         <Text>Section #1</Text>
       </View>
-      <View style={styles.section}>
+      <View style={styles.section('orange')}>
         <Text>Section #2</Text>
       </View>
     </Page>
@@ -61,6 +63,7 @@ const MyDocument = () => (
 ```
 
 ### `Web.` Render in DOM
+
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -76,6 +79,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 ### `Node.` Save in a file
+
 ```jsx
 import React from 'react';
 import ReactPDF from '@react-pdf/renderer';
@@ -106,4 +110,5 @@ Thank you to all our backers! [[Become a backer](https://opencollective.com/reac
 MIT © [Diego Muracciole](http://github.com/diegomura)
 
 ---
+
 ![](https://img.shields.io/npm/dt/@react-pdf/renderer.svg?style=flat)
